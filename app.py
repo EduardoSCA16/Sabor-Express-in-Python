@@ -6,14 +6,17 @@ restaurantes = [{'nome':'Pizza Hut', 'categoria':'Pizza', 'ativo':True},
                 {'nome':'Sushi', 'categoria':'Japonesa', 'ativo':True}]
 
 def finalizar_app():
+    ''' Essa função é responsável por finalizar o app '''
     os.system('cls')
     print('Finalizando o app')
 
 def voltar_ao_menu():
+    ''' Essa função é responsável por voltar ao menu '''
     input('\nDigite uma tecla para voltar ao menu principal: ')
     main()
 
 def exibir_subtitulo(texto):
+    ''' Essa função é respon'savel por exibir o subtítulo '''
     os.system('cls')
     linha = '-' * len(texto)
     print(linha)
@@ -22,10 +25,12 @@ def exibir_subtitulo(texto):
     print()
 
 def opcao_invalida():
+    ''' Essa função é responsável para voltar ao menu caso receba alguma opção inválida '''
     print('Opção inválida!\n')
     voltar_ao_menu()
 
 def exibir_nome_programa():
+    ''' Essa função é responsável por exibir o nome do programa '''
     print("""
     ░██████╗░█████╗░██████╗░░█████╗░██████╗░  ███████╗██╗░░██╗██████╗░██████╗░███████╗░██████╗░██████╗
     ██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔══██╗  ██╔════╝╚██╗██╔╝██╔══██╗██╔══██╗██╔════╝██╔════╝██╔════╝
@@ -36,12 +41,22 @@ def exibir_nome_programa():
     """)
 
 def exibir_opcoes():
+    ''' Essa função é responsável por exibir as opções para o usuário '''
     print('1. Cadastrar restaurante')
     print('2. Listar restaurante')
     print('3. Alternar estado do restaurante')
     print('4. Sair\n')
 
 def cadastrar_novo_restaurante():
+    ''' Essa função é responsável por cadastrar um novo restaurante
+    
+    Inputs:
+    - Nome do restaurante
+    - Categoria
+
+    Output:
+    - Adiciona um novo restaurante a lista de restaurantes
+    '''
     exibir_subtitulo('Cadastro de novos restaurantes')
     nome_restaurante = input('Digite o nome do restaurante que deseja cadastrar: ')
     categoria_restaurante = input('Digite a categoria do restaurante: ')
@@ -51,6 +66,7 @@ def cadastrar_novo_restaurante():
     voltar_ao_menu()
 
 def listar_restaurantes():
+    ''' Essa função é responsável por listar o restaurantes '''
     exibir_subtitulo('Lista de restaurantes:')
 
     print(f'{'Nome Restaurante'.ljust(22)} | {'Categoria'.ljust(20)} | Status')
@@ -63,6 +79,7 @@ def listar_restaurantes():
     voltar_ao_menu()
 
 def alternar_estado_do_restaurante():
+    ''' Essa função é responsável por alternar o estado do restaurante '''
     exibir_subtitulo('Alternando Estado do Restaurante')
     nome_restaurante = input('Digite o nome do restaurante que deseja alterar o estado: ')
     restaurante_encontrado = False 
@@ -81,6 +98,11 @@ def alternar_estado_do_restaurante():
     voltar_ao_menu()
 
 def escolher_opcao():
+    ''' Solicita e executa a opção escolhida pelo usuário
+    
+    Output:
+    - Executa a opção escolhida pelo usuário
+    '''
     try:
         opcao_escolhida = int(input('Escolha uma opção: '))
         print(f'Você escolheu a opção {opcao_escolhida}')
@@ -99,6 +121,7 @@ def escolher_opcao():
         opcao_invalida()
 
 def main():
+    ''' Essa função é responsável por realizar o programa por completo '''
     os.system('cls')
     exibir_nome_programa()
     exibir_opcoes()
